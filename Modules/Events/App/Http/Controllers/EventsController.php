@@ -3,65 +3,99 @@
 namespace Modules\Events\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
+use Modules\Events\App\Models\Event;
 
 class EventsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $event;
+
+    public function __construct(Event $event)
+	{
+		$this->event = $event;
+	}
+
     public function index()
     {
-        return view('events::index');
+        $data = $this->event->getEvents()->orderBy('id','ASC')->get();
+        return view('events::index', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create(Request $request)
     {
-        return view('events::create');
+        try {
+            $nEvent = new Event();
+            $nEvent->name = $request->name;
+            $nEvent->date = $request->date;
+            $nEvent->quantity = $request->quantity;
+            $nEvent->description = $request->description;
+            $nEvent->user_created_id = 1;
+            $nEvent->created_at = Carbon::now();
+            $nEvent->save();
+
+            return response()->json(['state' => 200,'msg' => '¡Los Datos se han guardados exitosamente!']);
+        } catch (\Throwable $th) {
+            return response()->json(['state' => 400,'msg' => '¡Los Datos no se han podido guardar!'.'\n'.$th->getMessage()]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request): RedirectResponse
-    {
-        //
+    public function event(Request $request){
+        $event = DB::table('events')
+            ->select(DB::raw('*, DATE_FORMAT(date, "%d/%m/%Y") as date'))
+            ->where('events.id', $request->id)
+            ->orderByDesc('id')
+            ->first();
+        return $event;
     }
 
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
+    public function update(Request $request)
     {
-        return view('events::show');
+        try {
+            // Buscamos el evento
+            $event = $this->event->findOrFail($request->id);
+
+            // Obtenemos los datos actualizados del request o usamos los datos existentes del evento
+            $data = [
+                'quantity' => $request->quantity ?? $event->quantity,
+                'date' => $request->date ?? $event->date,
+                'name' => $request->name ?? $event->name,
+                'description' => $request->description ?? $event->description,
+                'user_updated_id' => 1,
+                'updated_at' => now(),
+            ];
+
+            // Actualizamos el evento
+            $event->update($data);
+
+            return response()->json([
+                'code' => 200,
+                'message' => 'Se actualizó con éxito!'
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'code' => 500,
+                'message' => 'Error al actualizar | ' . $th->getMessage()
+            ]);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('events::edit');
+    public function datatableIndex(){
+        $data = $this->event->getEvents()->orderBy('id','ASC')->get();
+        return response()->json(['state' => 200, 'data' => $data]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id): RedirectResponse
+    public function destroy(Request $request)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-    {
-        //
+        try {
+            $dEvent = Event::where('id',$request->id)->first();
+            $dEvent->user_deleted_id = 1;
+            $dEvent->deleted_at = Carbon::now();
+            $dEvent->save();
+            return response()->json(['state' => 200, 'msg' => 'Evento eliminado!']);
+        } catch (\Throwable $th) {
+            return response()->json(['state' => 400, 'msg' => 'No se pudo Eliminar el Evento!' . $th]);
+        }
     }
 }

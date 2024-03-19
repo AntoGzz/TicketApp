@@ -14,6 +14,15 @@ use Modules\Events\App\Http\Controllers\EventsController;
 |
 */
 
-Route::group([], function () {
-    Route::resource('events', EventsController::class)->names('events');
+// Gestión de Eventos
+
+Route::name('events.')->prefix('events')->group(function () {
+    Route::get('/', ['uses' => 'EventsController@index', 'as' => 'index']);
+    Route::get('getEvent', ['uses' => 'EventsController@event', 'as' => 'getEvent']);
+    Route::get('getDatatableIndex', ['uses' => 'EventsController@datatableIndex', 'as' => 'getDatatableIndex']);
+
+    Route::post('newEvent', ['uses' => 'EventsController@create', 'as' => 'newEvent']);
+    Route::post('updateEvent', ['uses' => 'EventsController@update', 'as' => 'updateEvent']);
+
+    Route::put('trashEvent', ['uses' => 'EventsController@destroy', 'as' => 'trashEvent']);
 });
