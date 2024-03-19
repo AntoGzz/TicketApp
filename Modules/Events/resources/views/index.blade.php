@@ -120,6 +120,9 @@
                     quantity: {
                         required: true,
                     },
+                    price: {
+                        required: true,
+                    },
                     date: {
                         required: true,
                     },
@@ -133,6 +136,9 @@
                     },
                     quantity: {
                         required: "Ingresa la Cantidad de Boletos",
+                    },
+                    price: {
+                        required: "Ingresa el Precio por Boleto",
                     },
                     date: {
                         required: "Ingresa la Fecha del Evento",
@@ -210,6 +216,7 @@
                 { "data": "name" },
                 { "data": "date" },
                 { "data": "quantity" },
+                { "data": "ticket_price" },
                 { "data": "description" },
                 {
                     "data": "created_at",
@@ -245,7 +252,6 @@
             // Si el formulario es válido, enviar la petición AJAX
             if (valid) {
                 var formData  = new FormData(document.getElementById('up_event'))
-                console.log('formData',formData);
                 var route = "events/newEvent";
                 toastr.info('Formulario Válido. Enviando...')
                 $.ajax({
@@ -293,6 +299,7 @@
                 $('#eNro').val(data.id);
                 $('#eName').val(data.name);
                 $('#eQuantity').val(data.quantity);
+                $('#ePrice').val(data.ticket_price);
                 $('#eDate').val(data.date);
                 $('#eDescription').val(data.description);
                 $('#editBtn').val(data.id);
@@ -310,6 +317,7 @@
             var id = $('#eNro').val();
             var date = $('#eNDate').val();
             var tickets = $('#eQuantity').val();
+            var price = $('#ePrice').val();
             var name = $('#eName').val();
             var description = $('#eDescription').val();
             var table = $('#example1').DataTable();
@@ -325,6 +333,7 @@
                         'id': id,
                         'date': date,
                         'tickets': tickets,
+                        'ticket_price': price,
                         'name': name,
                         'description': description,
                     },
@@ -374,8 +383,8 @@
             });
         }
 
-         // Borrar Evento
-         function trashBtn(id){
+        // Borrar Evento
+        function trashBtn(id){
             $.ajax({
                 url: 'events/trashEvent',
                 type: 'PUT',

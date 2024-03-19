@@ -14,22 +14,27 @@
 
                 <div class="modal-body">
                     <div class="form-group row">
-                        <div class="col-sm-2 pt-2">
+                        <div class="col-sm-4 pt-2">
                             <label for="eNro">Evento #</label>
                             <input type="text" name="eNro" id="eNro" class="form-control" value="{{ old('eNro') }}" placeholder="#" readonly>
                         </div>
 
-                        <div class="col-sm-2 pt-2">
+                        <div class="col-sm-4 pt-2">
                             <label for="eQuantity">Boletos</label>
                             <input name="eQuantity" id="eQuantity" cols="63" rows="3" class="form-control" placeholder="eQuantity">
                         </div>
 
                         <div class="col-sm-4 pt-2">
+                            <label for="ePrice">Precio por Boleto</label>
+                            <input name="ePrice" id="ePrice" cols="63" rows="3" class="form-control" placeholder="ePrice">
+                        </div>
+
+                        <div class="col-sm-6 pt-2">
                             <label for="eDate">Fecha Planteada</label>
                             <input type="text" name="eDate" id="eDate" class="form-control" value="{{ old('eDate') }}" placeholder="Fecha del Evento" readonly>
                         </div>
 
-                        <div class="col-sm-4 pt-2">
+                        <div class="col-sm-6 pt-2">
                             <label for="eNDate">Nueva Fecha</label>
                             <input type="datetime-local" name="eNDate" id="eNDate" class="form-control" value="{{ old('eNDate') }}" placeholder="Fecha del Evento" >
                         </div>

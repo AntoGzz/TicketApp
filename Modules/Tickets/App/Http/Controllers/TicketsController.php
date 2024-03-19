@@ -6,62 +6,20 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Tickets\App\Models\Ticket;
 
 class TicketsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $ticket;
+
+    public function __construct(Ticket $ticket)
+	{
+		$this->ticket = $ticket;
+	}
+
     public function index()
     {
-        return view('tickets::index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('tickets::create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request): RedirectResponse
-    {
-        //
-    }
-
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('tickets::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('tickets::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id): RedirectResponse
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-    {
-        //
+        $data = $this->ticket->getTickets()->orderBy('id','ASC')->get();
+        return view('tickets::index', compact('data'));
     }
 }

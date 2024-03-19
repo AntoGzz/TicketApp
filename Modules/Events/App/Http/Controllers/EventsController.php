@@ -30,6 +30,7 @@ class EventsController extends Controller
             $nEvent->name = $request->name;
             $nEvent->date = $request->date;
             $nEvent->quantity = $request->quantity;
+            $nEvent->ticket_price = $request->price;
             $nEvent->description = $request->description;
             $nEvent->user_created_id = 1;
             $nEvent->created_at = Carbon::now();
@@ -59,6 +60,7 @@ class EventsController extends Controller
             // Obtenemos los datos actualizados del request o usamos los datos existentes del evento
             $data = [
                 'quantity' => $request->quantity ?? $event->quantity,
+                'ticket_price' => $request->ticket_price ?? $event->ticket_price,
                 'date' => $request->date ?? $event->date,
                 'name' => $request->name ?? $event->name,
                 'description' => $request->description ?? $event->description,

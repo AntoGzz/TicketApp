@@ -15,6 +15,9 @@ use Modules\Events\App\Http\Controllers\EventsController;
 */
 
 // Gestión de Eventos
+/* Route::group([], function () {
+    Route::resource('events', EventsController::class)->names('events');
+}); */
 
 Route::name('events.')->prefix('events')->group(function () {
     Route::get('/', ['uses' => 'EventsController@index', 'as' => 'index']);

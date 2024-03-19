@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Events extends Migration
+class Tickets extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class Events extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id')->unique();
-            $table->datetime('date')->nullable();
-            $table->string('name',60)->nullable();
-            $table->integer('quantity')->nullable();
-            $table->string('description',254)->nullable();
-             $table->double('ticket_price', 15, 2)->nullable();
+            $table->unsignedBigInteger('event_id');
+            $table->integer('quantity_sold')->nullable();
+            $table->string('payment_file')->nullable();
+            $table->unsignedBigInteger('buyer_id');
             // Campos Estandar
             $table->unsignedInteger('user_created_id');
             $table->timestamp('created_at')->nullable();
@@ -37,6 +36,6 @@ class Events extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('tickets');
     }
 }
