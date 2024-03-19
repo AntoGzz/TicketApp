@@ -63,6 +63,27 @@
                         </li> --}}
                     </ul>
                 </li>
+
+                <li class="nav-item {{ request()->is('tickets*', 'reporting*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p> Gestión de Boletos <i class="right fas fa-angle-left"></i> </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('tickets.index') }}"
+                                class="nav-link {{ request()->is('tickets') ? 'active' : '' }}">
+                                <i class="far fa-edit nav-icon"></i> <p> Boletos</p>
+                            </a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a href="{{ route('reporting.index') }}"
+                                class="nav-link {{ request()->is('reporting') ? 'active' : '' }}">
+                                <i class="fas fa-chart-pie nav-icon"></i> <p>Reportería</p>
+                            </a>
+                        </li> --}}
+                    </ul>
+                </li>
             </ul>
         </nav>
 

@@ -1,15 +1,13 @@
 <div class="card-body">
     <div id="main-content" style="font-size: 14px;">
-        <table id="example1" class="table table-bordered table-striped">
+        <table id="example2" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Nombre</th>
-                    <th>Fecha Pautada</th>
+                    <th>Evento</th>
+                    <th>Comprador</th>
                     <th>Boletos</th>
-                    <th>Precio por Boleto</th>
-                    <th>Descripción</th>
-                    <th>Creado</th>
+                    <th>Fecha de Evento</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -21,12 +19,10 @@
             <tfoot>
                 <tr>
                     <th>#</th>
-                    <th>Nombre</th>
-                    <th>Fecha Pautada</th>
+                    <th>Evento</th>
+                    <th>Comprador</th>
                     <th>Boletos</th>
-                    <th>Precio por Boleto</th>
-                    <th>Descripción</th>
-                    <th>Creado</th>
+                    <th>Fecha de Evento</th>
                     <th>Acciones</th>
                 </tr>
             </tfoot>
