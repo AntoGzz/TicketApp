@@ -16,28 +16,16 @@
             <div class="info">
                 <span id="infoUser" style="color: white;"></span><br>
                 <span id="infoJob" style="color: white;"></span>
-                {{-- <a href="#" class="d-block">Alexander Pierce</a> --}}
+                <a href="#" class="d-block">Alexander Pierce</a>
             </div>
         </div>
-
-        {{-- <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                    aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
-                    </button>
-                </div>
-            </div>
-        </div> --}}
 
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
 
                 <li class="nav-item">
-                    <a href="/mainDashboard" class="nav-link {{ request()->is('mainDashboard') ? 'active' : '' }}">
+                    <a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">
                         <i class="fas fa-tachometer-alt nav-icon"></i>
                         <p>Dashboard</p>
                     </a>
@@ -55,12 +43,6 @@
                                 <i class="far fa-edit nav-icon"></i> <p> Eventos</p>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('reporting.index') }}"
-                                class="nav-link {{ request()->is('reporting') ? 'active' : '' }}">
-                                <i class="fas fa-chart-pie nav-icon"></i> <p>Reportería</p>
-                            </a>
-                        </li> --}}
                     </ul>
                 </li>
 
@@ -76,12 +58,6 @@
                                 <i class="far fa-edit nav-icon"></i> <p> Boletos</p>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('reporting.index') }}"
-                                class="nav-link {{ request()->is('reporting') ? 'active' : '' }}">
-                                <i class="fas fa-chart-pie nav-icon"></i> <p>Reportería</p>
-                            </a>
-                        </li> --}}
                     </ul>
                 </li>
             </ul>

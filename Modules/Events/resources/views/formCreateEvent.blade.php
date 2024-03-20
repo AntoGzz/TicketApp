@@ -4,7 +4,7 @@
         <div class="input-group my-3 col-12 col-sm-12">
             <div class="input-group">
                 <div class="input-group-prepend" style="height: 38px;">
-                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                    <span class="input-group-text"><i class="far fa-user"></i></span>
                 </div>
                 <input type="text" class="form-control" placeholder="Nombre" name="name">
             </div>
@@ -12,7 +12,7 @@
         <div class="input-group my-3 col-12 col-sm-12">
             <div class="input-group">
                 <div class="input-group-prepend" style="height: 38px;">
-                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                    <span class="input-group-text"><i class="fa fa-ticket-alt"></i></span>
                 </div>
                 <input type="text" class="form-control" placeholder="Cantidad de Boletos" name="quantity"
                     pattern="[0-9]*" title="Por favor, ingresa solo números">
@@ -21,7 +21,7 @@
         <div class="input-group my-3 col-12 col-sm-12">
             <div class="input-group">
                 <div class="input-group-prepend" style="height: 38px;">
-                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                    <span class="input-group-text"><i class="fa fa-money-bill-alt"></i></span>
                 </div>
                 <input type="text" class="form-control" placeholder="Precio por Boleto" name="price"
                     pattern="^\d+(\.\d{1,2})?$"
@@ -39,7 +39,7 @@
         </div>
         <div class="input-group my-3 col-lg-12 col-sm-12">
             <div class="input-group-prepend" style="height: 38px;">
-                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <span class="input-group-text"><i class="fa fa-file-alt"></i></span>
             </div>
             <input type="text" class="form-control" placeholder="Descripción del Evento" id="description"
                 name="description">

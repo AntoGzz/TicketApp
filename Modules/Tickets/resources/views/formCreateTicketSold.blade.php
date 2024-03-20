@@ -5,7 +5,7 @@
             <div class="input-group my-3 col-3 col-sm-3">
                 <div class="input-group">
                     <div class="input-group-prepend" style="height: 38px;">
-                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        <span class="input-group-text"><i class="fa fa-id-card"></i></span>
                     </div>
                     <input type="text" class="form-control" placeholder="Formato: V-XXXXXXXXX" name="identification" id="identification" >
                 </div>
@@ -13,7 +13,7 @@
             <div class="input-group my-3 col-3 col-sm-3">
                 <div class="input-group">
                     <div class="input-group-prepend" style="height: 38px;">
-                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
                     </div>
                     <input type="text" class="form-control" placeholder="Nombre" name="name">
                 </div>
@@ -21,7 +21,7 @@
             <div class="input-group my-3 col-3 col-sm-3">
                 <div class="input-group">
                     <div class="input-group-prepend" style="height: 38px;">
-                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
                     </div>
                     <input type="text" class="form-control" placeholder="Apellido" name="last_name">
                 </div>
@@ -29,7 +29,7 @@
             <div class="input-group my-3 col-3 col-sm-3">
                 <div class="input-group">
                     <div class="input-group-prepend" style="height: 38px;">
-                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        <span class="input-group-text"><i class="fa fa-phone"></i></span>
                     </div>
                     <input type="text" class="form-control" placeholder="Teléfono" name="phone" id="phone">
                 </div>
@@ -37,7 +37,7 @@
             <div class="input-group my-3 col-3 col-sm-3">
                 <div class="input-group">
                     <div class="input-group-prepend" style="height: 38px;">
-                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        <span class="input-group-text"><i class="fa fa-address-card"></i></span>
                     </div>
                     <input type="email" class="form-control" placeholder="Correo Electrónico" name="email">
                 </div>
@@ -53,7 +53,7 @@
             </div>
             <div class="input-group my-3 col-3 col-sm-2">
                 <div class="input-group-prepend" style="height: 38px;">
-                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <span class="input-group-text"><i class="fa fa-ticket-alt"></i></span>
                 </div>
                 <input type="text" class="form-control" placeholder="# de Boletos" id="quantity_sold" name="quantity_sold" disabled>
             </div>
