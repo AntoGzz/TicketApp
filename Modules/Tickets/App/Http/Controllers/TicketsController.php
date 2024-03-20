@@ -37,6 +37,7 @@ class TicketsController extends Controller
 
     public function create(Request $request)
     {
+
         try {
             $event = $this->event->findOrFail($request->event_id);
 
@@ -77,7 +78,8 @@ class TicketsController extends Controller
                         $lastTicket->save();
 
                         $uEvent = Event::where('id',$request->event_id)->first();
-                        $uEvent->quantity_available = $event->quantity_available - $request->quantity_sold;
+                        $uEvent->quantity_available = $event->quantity - $request->quantity_sold;
+                        $uEvent->quantity_sold = $event->quantity - ($event->quantity - $request->quantity_sold);
                         $uEvent->user_updated_id = 1;
                         $uEvent->save();
                     }
@@ -106,7 +108,8 @@ class TicketsController extends Controller
                         $lastTicket->save();
 
                         $uEvent = Event::where('id',$request->event_id)->first();
-                        $uEvent->quantity_available = $event->quantity_available - $request->quantity_sold;
+                        $uEvent->quantity_available = $event->quantity - $request->quantity_sold;
+                        $uEvent->quantity_sold = $event->quantity - ($event->quantity - $request->quantity_sold);
                         $uEvent->user_updated_id = 1;
                         $uEvent->save();
                     }
