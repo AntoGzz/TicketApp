@@ -5,6 +5,7 @@ namespace Modules\Events\App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Tickets\App\Models\Ticket;
 
 class Event extends Model
 {
@@ -34,5 +35,10 @@ class Event extends Model
     public function scopeGetEvents($query)
     {
         return $query->select('*');
+    }
+
+    public function Ticket()
+    {
+        return $this->hasMany(Ticket::class);
     }
 }

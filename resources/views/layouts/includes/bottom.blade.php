@@ -13,8 +13,8 @@
 
 <script src="{{asset('tpl/v3/plugins/sparklines/sparkline.js')}}"></script>
 
-<script src="{{asset('tpl/v3/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-<script src="{{asset('tpl/v3/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+{{-- <script src="{{asset('tpl/v3/plugins/jqvmap/jquery.vmap.min.js')}}"></script> --}}
+{{-- <script src="{{asset('tpl/v3/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script> --}}
 
 <script src="{{asset('tpl/v3/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
 
