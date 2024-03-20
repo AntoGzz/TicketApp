@@ -22,6 +22,8 @@ use Modules\Events\App\Http\Controllers\EventsController;
 Route::name('events.')->prefix('events')->group(function () {
     Route::get('/', ['uses' => 'EventsController@index', 'as' => 'index']);
     Route::get('getEvent', ['uses' => 'EventsController@event', 'as' => 'getEvent']);
+    Route::get('select', ['uses' => 'EventsController@events', 'as' => 'select']);
+    Route::get('selectAvailable', ['uses' => 'EventsController@quantityAvailable', 'as' => 'selectAvailable']);
     Route::get('getDatatableIndex', ['uses' => 'EventsController@datatableIndex', 'as' => 'getDatatableIndex']);
 
     Route::post('newEvent', ['uses' => 'EventsController@create', 'as' => 'newEvent']);

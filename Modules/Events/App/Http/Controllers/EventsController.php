@@ -30,6 +30,7 @@ class EventsController extends Controller
             $nEvent->name = $request->name;
             $nEvent->date = $request->date;
             $nEvent->quantity = $request->quantity;
+            $nEvent->quantity_available = $request->quantity;
             $nEvent->ticket_price = $request->price;
             $nEvent->description = $request->description;
             $nEvent->user_created_id = 1;
@@ -46,6 +47,27 @@ class EventsController extends Controller
         $event = DB::table('events')
             ->select(DB::raw('*, DATE_FORMAT(date, "%d/%m/%Y") as date'))
             ->where('events.id', $request->id)
+            ->orderByDesc('id')
+            ->first();
+        return $event;
+    }
+
+    public function events(){
+        $event = DB::table('events')
+            ->select('id', DB::raw("CONCAT(name ,' - Disponibles: [ ', quantity_available, ' ]') as event"), DB::raw('DATE_FORMAT(date, "%d/%m/%Y %H:%mm") as date'))
+            ->whereNull('deleted_at')
+            ->whereNull('user_deleted_id')
+            ->orderByDesc('id')
+            ->get();
+        return $event;
+    }
+
+    public function quantityAvailable(Request $request){
+        $event = DB::table('events')
+            ->select('id', 'quantity_available')
+            ->whereNull('deleted_at')
+            ->whereNull('user_deleted_id')
+            ->where('id',$request->event)
             ->orderByDesc('id')
             ->first();
         return $event;

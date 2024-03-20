@@ -35,4 +35,9 @@ class Buyer extends Model
     {
         return $query->select('*');
     }
+
+    public function Ticket()
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }

@@ -17,7 +17,9 @@ class Events extends Migration
             $table->increments('id')->unique();
             $table->datetime('date')->nullable();
             $table->string('name',60)->nullable();
-            $table->integer('quantity')->nullable();
+            $table->integer('quantity')->nullable(); // Total
+            $table->integer('quantity_available')->nullable(); // Disponible
+            $table->integer('quantity_sold')->nullable(); // Vendidas
             $table->string('description',254)->nullable();
              $table->double('ticket_price', 15, 2)->nullable();
             // Campos Estandar
