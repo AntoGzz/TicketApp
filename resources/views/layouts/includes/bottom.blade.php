@@ -43,29 +43,5 @@
 
 <script src="{{asset('tpl/v3/dist/js/pages/dashboard.js')}}"></script>
 
-{{-- <script type="text/javascript">
-    // BEGIN: Obtener Usuario
-    var infoUserRoute = "/infoUserRoute/get";
-    $.get(infoUserRoute, function(data) {
-        var name = data.id[0].name;
-        var jobtitle = data.id[0].rol_name;
-        var username = name;
-        document.getElementById("infoUser").innerHTML = username;
-        document.getElementById("infoJob").innerHTML = jobtitle;
-    });
-    // END: Obtener Usuario
-
-    var notificationsUrl = "/administrative/getNotifications";
-    $.get(notificationsUrl, function(data) {
-        document.getElementById("countT").innerHTML = data.countT;
-        document.getElementById("countA").innerHTML = data.countA;
-        document.getElementById("countP").innerHTML = data.countP;
-        document.getElementById("countE").innerHTML = data.countE;
-        document.getElementById("last_timeA").innerHTML = data.last_timeA;
-        document.getElementById("last_timeE").innerHTML = data.last_timeE;
-        document.getElementById("last_timeP").innerHTML = data.last_timeP;
-    });
-</script> --}}
-
 @yield('bottom-cs-styles')
 @yield('bottom-cs-js')
