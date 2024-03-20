@@ -31,6 +31,7 @@ class EventsController extends Controller
             $nEvent->date = $request->date;
             $nEvent->quantity = $request->quantity;
             $nEvent->quantity_available = $request->quantity;
+            $nEvent->quantity_sold = 0;
             $nEvent->ticket_price = $request->price;
             $nEvent->description = $request->description;
             $nEvent->user_created_id = 1;
