@@ -64,3 +64,14 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## License
+
+Implements Laravel Sail
+- Iniciar WSL2
+- Navegar al Directorio del Proyecto
+- Instalar Sail
+- ./vendor/bin/sail up
+- Ejecutar migraciones
+- ./vendor/bin/sail artisan migrate
+- Abrir en local
