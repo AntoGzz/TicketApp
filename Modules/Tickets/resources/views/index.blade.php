@@ -365,12 +365,12 @@
                             getData(currentPage);
                             getEvents();
                         }else{
-                            toastr.error('No se pudieron guardar los datos. Verifica el formulario.')
+                            toastr.error(res.msg)
                         }
 
                     },
                     error: function(xhr, status, error) {
-                        toastr.error('Error en el envio de los Datos.')
+                        toastr.error('Error en el envio de los Datos.'+xhr.statusText)
                     }
                 });
             } else {
